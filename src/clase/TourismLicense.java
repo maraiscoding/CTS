@@ -1,30 +1,29 @@
 package clase;
 
-public class TourismLicense implements AbstractTourismLicense {
-    private static TourismLicense instance = null;
-    private String licenseNumber;
+public class TourismLicense implements AbstractTourismLicense  {
+  private static TourismLicense instance = null;
+  private String licenseNumber;
 
-    private TourismLicense() {
-        // Constructor privat pentru a preveni instanțierea directă
-    }
+  private TourismLicense() {
+  }
 
-    public static synchronized TourismLicense getInstance() {
-        if (instance == null) {
-            instance = new TourismLicense();
-        }
-        return instance;
-    }
+  public static synchronized TourismLicense getInstance() {
+      if(instance==null) {
+          instance=new TourismLicense();
+      }
+      return instance;
+  }
 
-    @Override
-    public synchronized void setLicenseNumber(String licenseNumber) throws LicenseAlreadySetException {
-        if (licenseNumber!=null) {
-            throw new LicenseAlreadySetException("License number can only be set once!");
-        }
-        this.licenseNumber = licenseNumber;
-    }
+  @Override
+    public void setLicenseNumber(String licenseNumber) throws LicenseAlreadySetException {
+      if(this.licenseNumber!=null) {
+          throw new LicenseAlreadySetException("License can only be set once!");
+      }
+      this.licenseNumber=licenseNumber;
+  }
 
     @Override
     public String getLicenseNumber() {
-        return this.licenseNumber;
+        return licenseNumber;
     }
 }

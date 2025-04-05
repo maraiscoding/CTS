@@ -1,47 +1,38 @@
 package clase;
 
 public class HolidayPackage implements AbstractHolidayPackage {
-    private String transport;
-    private String accommodation;
-    private String extraActivities;
+    private final String transport;
+    private final String cazare;
+    private final String activitatiExtra;
 
-    private HolidayPackage(HolidayPackageBuilder builder) {
-        this.transport = builder.transport;
-        this.accommodation = builder.accommodation;
-        this.extraActivities = builder.extraActivities;
+    public HolidayPackage(String transport, String cazare, String activitatiExtra) {
+        super();
+        this.transport = transport;
+        this.cazare = cazare;
+        this.activitatiExtra = activitatiExtra;
     }
 
     @Override
-    public void showPackageDetails() {
-        System.out.println("Holiday Package Details:");
-        System.out.println("Transport: " + transport);
-        System.out.println("Accommodation: " + accommodation);
-        System.out.println("Extra Activities: " + extraActivities);
+    public String getTransport() {
+        return transport;
     }
 
-    // Builder Class for Holiday Package
-    public static class HolidayPackageBuilder {
-        private String transport;
-        private String accommodation;
-        private String extraActivities;
+    @Override
+    public String getActivitatiExtra() {
+        return activitatiExtra;
+    }
 
-        public HolidayPackageBuilder setTransport(String transport) {
-            this.transport = transport;
-            return this;
-        }
+    @Override
+    public String getCazare() {
+        return cazare;
+    }
 
-        public HolidayPackageBuilder setAccommodation(String accommodation) {
-            this.accommodation = accommodation;
-            return this;
-        }
-
-        public HolidayPackageBuilder setExtraActivities(String extraActivities) {
-            this.extraActivities = extraActivities;
-            return this;
-        }
-
-        public HolidayPackage build() {
-            return new HolidayPackage(this);
-        }
+    @Override
+    public String toString() {
+        return "HolidayPackage{" +
+                "transport='" + transport + '\'' +
+                ", cazare='" + cazare + '\'' +
+                ", activitatiExtra='" + activitatiExtra + '\'' +
+                '}';
     }
 }

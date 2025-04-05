@@ -1,7 +1,7 @@
 package clase;
 
 public interface AbstractHolidayPackage {
-        void showPackageDetails();
-    }
-
-
+   String getTransport();
+   String getCazare();
+   String getActivitatiExtra();
+}
